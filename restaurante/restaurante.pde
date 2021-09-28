@@ -28,16 +28,33 @@ void setup(){
   size(640,480);
   
   fill(0,0,0);
-  rect(50,50,200,200);
+  rect(50,50,640-50-50,480-50-50);
   fill(255,255,2550);
   textSize(20);
-  text("Hello",100,100);
+  text("Bienvenido al Restaurante del Tio Marco",100,80);
+  
+  text("................... \t\t\t Entradas",100,100);
+  text("$40. Tacos de lechuga",100,120);
+  text("$50. Nachos",100,140);
+  text("................... \t\t\t Sopas",100,160);
+  text("$30 Sopa de pasta",100,180);
+  text("$35Arroz con huevo",100,200);
+  text("................... \t\t\t Plato Fuerte",100,220);
+  text("$50 Carne de cerdo",100,240);
+  text("$75 Arrachera",100,260);
+  text("................... \t\t\t Postres",100,280);
+  text("$15 Duraznos con crema",100,300);
+  text("$10Gelatina",100,320);
+  
+  text("Cualquier consumo incluye 10 pesos más de servicio",100,360);
+  fill(255,0,0);
+  text("Cuenta total",100,400);
 }
 
 void draw(){
   
-  JOptionPane.showMessageDialog(null,"Hello there");
-  JOptionPane.showMessageDialog(null,"Hello there 2");
-  text("Hey!", 100,150);
+  //JOptionPane.showMessageDialog(null,"Hello there");
+  //JOptionPane.showMessageDialog(null,"Hello there 2");
+  //text("Hey!", 100,150);
   noLoop();
 }
