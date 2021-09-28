@@ -1,0 +1,61 @@
+import javax.swing.JOptionPane;
+
+int fx = 10;
+int fy = 10;
+int sq_w = 30;
+int sq_h = 30;
+int st_d = 10;
+
+size(220,220); 
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+fx = 10;
+fy += sq_h + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+fx = 10;
+fy += sq_h + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+fx = 10;
+fy += sq_h + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+fx = 10;
+fy += sq_h + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+rect(fx,fy,sq_w,sq_h); fx += sq_w  + st_d;
+fx = 10;
+fy += sq_h + st_d;
+int sx = Integer.parseInt( JOptionPane.showInputDialog("Start X (0,1,2,3,4)") );
+int sy = Integer.parseInt( JOptionPane.showInputDialog("Start Y (0,1,2,3,4)") );
+int dx = Integer.parseInt( JOptionPane.showInputDialog("End X (0,1,2,3,4)") );
+int dy = Integer.parseInt( JOptionPane.showInputDialog("End Y (0,1,2,3,4)") );
+int squares  = (dx-sx)+(dy-sy);
+
+JOptionPane.showMessageDialog(null, "You gotta go " + squares + " squares");
+
+strokeWeight(10);
+line( sx*(sq_w+st_d) , sy*(sq_h+st_d) ,  dx*(sq_w+st_d),  sy*(sq_h+st_d) );
+line( dx*(sq_w+st_d),  sy*(sq_h+st_d) ,  dx*(sq_w+st_d), dy*(sq_h+st_d) );
+strokeWeight(1);
+
+fill(255,0,0);
+circle(sx*(sq_w+st_d), sy*(sq_h+st_d) , st_d);
+fill(0,0,255);
+circle(dx*(sq_w+st_d), dy*(sq_h+st_d) , st_d);
