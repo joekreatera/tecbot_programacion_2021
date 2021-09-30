@@ -56,11 +56,15 @@ void draw(){
   
   //JOptionPane.showMessageDialog(null,"Hello there");
   //JOptionPane.showMessageDialog(null,"Hello there 2");
-  //text("Hey!", 100,150);
   
   int entrada = Integer.parseInt( JOptionPane.showInputDialog("Para la entrada 0) Tacos de lechuga, 1) Nachos") );
   int sopa = Integer.parseInt( JOptionPane.showInputDialog("Para la Sopa 0) Sopa de pasta, 1) Arroz con huevo") );
   int plato = Integer.parseInt( JOptionPane.showInputDialog("Para el Plato fuerte 0) Carne de cerdo, 1) Arrachera") );
   int postre = Integer.parseInt( JOptionPane.showInputDialog("Para el postre 0) Gelatina , 1) Duraznos con crema ") );
+  
+  int total = 130+entrada*10  +5*sopa +  15*plato + 5*postre;
+ 
+  text("$" + total, 250,400);
+  
   noLoop();
 }
