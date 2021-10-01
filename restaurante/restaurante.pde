@@ -63,7 +63,9 @@ void draw(){
   int postre = Integer.parseInt( JOptionPane.showInputDialog("Para el postre 0) Gelatina , 1) Duraznos con crema ") );
   
   int total = 130+entrada*10  +5*sopa +  15*plato + 5*postre;
- 
+  
+  int tam = (int)(20 + 10*(total-130)/35.0f);
+  textSize(tam);
   text("$" + total, 250,400);
   
   noLoop();
