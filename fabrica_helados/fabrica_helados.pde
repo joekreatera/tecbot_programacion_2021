@@ -82,16 +82,18 @@ float client(int client_num) {
     int b1 = choose(r);
     int b2 = choose(r);
     int b3 = choose(r);
-    drawCone(possible_x,possible_y,100,100, b1, b2, b3);
+    drawCone(100 + possible_x*150,possible_y*200 + 150,100,100, b1, b2, b3);
     return b1*ball_price + b2*ball_price + b3*ball_price;
     
   } else if ( prob_ic_ball_2 > Math.random() ) {
     int b1 = choose(r);
     int b2 = choose(r);
+    drawCone(100 + possible_x*150,possible_y*200 + 150,100,100, b1, b2, 0);
     return b1*ball_price + b2*ball_price;
     
   } else if (prob_ic_ball_1 > Math.random()) {
     int b1 = choose(r);
+    drawCone(100 + possible_x*150,possible_y*200 + 150,100,100, b1, 0, 0);
     return b1*ball_price;
   } else {
     print("NO COMPRA");
