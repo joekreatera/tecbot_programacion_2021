@@ -18,13 +18,13 @@ class Human{
     return nappyness;
   }
   public int getHunger(){
-    return nappyness;
+    return hunger;
   }
   public int getAggressiveness(){
-    return nappyness;
+    return aggressiveness;
   }
   public int getLife(){
-    return nappyness;
+    return life;
   }
 
   public void render(int x, int y){
