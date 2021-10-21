@@ -3,6 +3,7 @@ class Human{
   private int hunger;
   private int aggressiveness;
   private int life;
+  private int strength;
   
   /* constructor */
   public Human(RandomMachine machine){
@@ -10,6 +11,7 @@ class Human{
     hunger = machine.getRandomBetween(1,100);
     aggressiveness = machine.getRandomBetween(1,100);
     life = machine.getRandomBetween(1,100);
+    strength = machine.getRandom(4,20);
     
   }
   
@@ -25,6 +27,39 @@ class Human{
   }
   public int getLife(){
     return life;
+  }
+  
+  public doAction(RandomMachine machine, int foodResource, Human challenger){
+    int r = machine.getRandomBetween(1,4);
+    if( life < 0){
+      return;
+    }
+    
+    if ( r == 0){
+      sleep();
+    }
+    if ( r == 1){
+      eat(foodResource);
+    }
+    if ( r == 2){
+      fight(challenger);
+    }
+    if ( r == 0){
+      die();
+    }
+    
+  }
+  
+  public void sleep(){
+  }
+  public void fight(Human opponent){
+    
+  }
+  public void eat(int food){
+    life = life + (int)(food*.10f)
+  }
+  public void die(){
+    life = 0;
   }
 
   public void render(int x, int y){
