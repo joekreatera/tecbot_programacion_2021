@@ -25,11 +25,19 @@ Determina la cantidad de dias promedio de 10 generaciones. Cada generacion cuent
 */
 
 
+Human humanA;
+Human humanB;
+RandomMachine random;
 void setup(){
-
+  random = new RandomMachine();
+  humanA = new Human(random);
+  humanB = new Human(random);
+  size(640,480);
 }
 
 void draw(){
-
-
+  background(200);
+  humanA.render(50,50);
+  humanB.render(200,50);
+  
 }
