@@ -28,6 +28,9 @@ class Human{
   public int getLife(){
     return life;
   }
+  public int getStrength(){
+    return strength;
+  }
   
   public doAction(RandomMachine machine, int foodResource, Human challenger){
     int r = machine.getRandomBetween(1,4);
@@ -44,10 +47,14 @@ class Human{
     if ( r == 2){
       fight(challenger);
     }
-    if ( r == 0){
+    if ( r == 4){
       die();
     }
     
+  }
+  
+  public void receiveHit(int s){
+    life = (int)(Math.max( life - s , 0));
   }
   
   public void sleep(){
