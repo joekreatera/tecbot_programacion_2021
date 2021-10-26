@@ -39,11 +39,11 @@ class Human {
         return 2;
       } else {
         if ( nappyness > hunger) {
-          int p = 100 - machine.getRandomBetween(0, 100);
+          int p1 = 100 - machine.getRandomBetween(0, 100);
           if ( nappyness > p) {
             return 0;
           } else {
-            int p = 100 - machine.getRandomBetween(0, 100);
+            int p2 = 100 - machine.getRandomBetween(0, 100);
             if ( hunger > p) {
               return 1;
             } else {
@@ -51,11 +51,11 @@ class Human {
             }
           }
         } else {
-          int p = 100 - machine.getRandomBetween(0, 100);
+          int p1 = 100 - machine.getRandomBetween(0, 100);
           if ( hunger > p) {
             return 1;
           } else {
-            int p = 100 - machine.getRandomBetween(0, 100);
+            int p2 = 100 - machine.getRandomBetween(0, 100);
             if ( nappyness > p) {
               return 0;
             } else {
