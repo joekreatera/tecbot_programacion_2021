@@ -33,6 +33,7 @@ void setup(){
   humanA = new Human(random);
   humanB = new Human(random);
   size(640,480);
+  frameRate(1);
 }
 
 void draw(){
