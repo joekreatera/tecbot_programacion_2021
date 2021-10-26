@@ -37,6 +37,9 @@ void setup(){
 
 void draw(){
   background(200);
+  
+  humanA.doAction(random, 100 , humanB);
+  humanB.doAction(random, 100 , humanA);
   humanA.render(50,50);
   humanB.render(200,50);
   

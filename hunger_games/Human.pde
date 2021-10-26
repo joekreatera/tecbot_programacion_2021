@@ -4,7 +4,7 @@ class Human{
   private int aggressiveness;
   private int life;
   private int strength;
-  
+  private int state = -1;
   /* constructor */
   public Human(RandomMachine machine){
     nappyness = machine.getRandomBetween(1,100);
@@ -33,24 +33,34 @@ class Human{
   }
   
   public void doAction(RandomMachine machine, int foodResource, Human challenger){
-    int r = machine.getRandomBetween(1,4);
-    if( life < 0){
+    int r = machine.getRandomBetween(1,3);
+    if( life <= 0){
+      state = 4;
       return;
     }
     
-    if ( r == 0){
+    if (state != 2  && r == 0){
       sleep();
     }
-    if ( r == 1){
+    if (state != 2 && r == 1){
       eat(foodResource);
     }
-    if ( r == 2){
-      fight(challenger);
+    if (state == 2 ||  r == 2){
+      if( !challenger.isDead() ){
+        fight(challenger);
+      }else{
+        r = -1;
+      }
+      
     }
     if ( r == 4){
       die();
     }
-    
+    state = r;
+  }
+  
+  public boolean isDead(){    
+    return (life <= 0); 
   }
   
   public void receiveHit(int s){
@@ -60,8 +70,9 @@ class Human{
   public void sleep(){
   }
   public void fight(Human opponent){
-    
+      opponent.receiveHit( getStrength() );
   }
+  
   public void eat(int food){
     life = life + (int)(food*.10f);
   }
