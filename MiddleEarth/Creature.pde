@@ -26,6 +26,28 @@ public class Creature {
   public void fight(Creature opponent) {
   }
   public void move() {
+    if(px + sx >= 100){
+      if( sx > 0 ){
+        sx = sx*-1;
+      }
+    }
+    if(py + sy >= 100){
+      if( sy > 0 ){
+        sy = sy*-1;
+      }
+    }
+    
+    if(px + sx <= 0){
+      if( sx < 0 ){
+        sx = sx*-1;
+      }
+    }
+    if(py + sy <= 0){
+      if( sy < 0 ){
+        sy = sy*-1;
+      }
+    }
+    
     px = px + sx;
     py = py + sy;
   }
