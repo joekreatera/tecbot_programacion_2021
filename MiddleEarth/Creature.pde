@@ -24,6 +24,9 @@ public class Creature {
   public void takeItem() {
   }
   public void fight(Creature opponent) {
+    isFighting = true;
+    int hit = this.getForce();
+    opponent.receiveHit(hit);
   }
   public void move() {
     if(px + sx >= 100){
@@ -77,6 +80,12 @@ public class Creature {
   public int getForce() {
     return 0;
   }
+  
+  public void receiveHit(int damage){
+    life = Math.min(0, life - damage);
+    
+  }
+  
   public void render(){
     circle(px*4,py*4,10);
   }

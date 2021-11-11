@@ -8,4 +8,13 @@ public class Orc extends Creature{
     sy = (int)(Math.random()*4-2); 
   }
   
+  public void render(){
+    fill(0,0,0);
+    super.render();
+    fill(255,255,255);
+  }
+  
+  public int getForce() {
+    return (int)Math.round(this.getStrength()*0.7f + this.getMagic()*0.3f );
+  }
 }

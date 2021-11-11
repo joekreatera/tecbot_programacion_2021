@@ -7,4 +7,8 @@ public class Elf extends Creature{
     sx = (int)(Math.random()*4-2);
     sy = (int)(Math.random()*4-2); 
   }
+  
+  public int getForce() {
+    return (int)Math.round(this.getStrength()*0.2f + this.getMagic()*0.8f );
+  }
 }
