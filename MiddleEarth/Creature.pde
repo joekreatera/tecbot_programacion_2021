@@ -8,8 +8,8 @@ public class Creature {
   int strength;
   int MAX_LIFE;
   int magic;
-  boolean isFighting;
-
+  Creature opponent = null;
+  
   public Creature() {
     px = 0;
     py = 0;
@@ -23,12 +23,32 @@ public class Creature {
 
   public void takeItem() {
   }
-  public void fight(Creature opponent) {
-    isFighting = true;
+  
+  public boolean isFighting(){
+    return opponent != null;
+  }
+  public void fight() {
+    
+    if( getLife() <= 0 ){
+      return;
+    }
+    
+    if( !isFighting() ){
+      return;
+    }
+    
     int hit = this.getForce();
     opponent.receiveHit(hit);
+    if(opponent.getLife() <= 0){
+      opponent = null;
+    }
   }
   public void move() {
+    
+    if( isFighting() ) {
+      return;
+    }
+    
     if(px + sx >= 100){
       if( sx > 0 ){
         sx = sx*-1;
@@ -81,12 +101,19 @@ public class Creature {
     return 0;
   }
   
+  public void setFight(Creature o){
+    opponent = o;
+  }
+  
   public void receiveHit(int damage){
     life = Math.min(0, life - damage);
     
   }
   
   public void render(){
+    if( getLife() < 0 ) {
+      return;
+    }
     circle(px*4,py*4,10);
   }
 }

@@ -20,6 +20,35 @@ public class World{
     e3 = new Elf();
   }
   
+  public float getDistance(Creature a, Creature b){
+    
+    int dx = (a.getPx() - b.getPx())*(a.getPx() - b.getPx());
+    int dy = (a.getPy() - b.getPy())*(a.getPy() - b.getPy());
+    
+    float d = (float)Math.sqrt(dx+dy);
+    
+    return d;
+  }
+  
+  public void checkFights(Creature a, Creature b1, Creature b2, Creature b3){
+    
+    if( getDistance(a, b1) < 10 && a.isFighting() ){
+      a.setFight(b1);
+      b1.setFight(a);
+    }
+    
+    if( getDistance(a, b2) < 10 && a.isFighting() ){
+      a.setFight(b1);
+      b2.setFight(a);
+    }
+    
+    if( getDistance(a, b3) < 10 && a.isFighting() ){
+      a.setFight(b1);
+      b3.setFight(a);
+    }
+  
+  }
+  
   public void render(){
     background(100);
     o1.move();
@@ -39,6 +68,13 @@ public class World{
     
     e3.move();
     e3.render();
+    
+    checkFights(e1, o1,o2,o3);
+    checkFights(e2, o1,o2,o3);
+    checkFights(e3, o1,o2,o3);
+    
+    e1.fight(); e2.fight(); e3.fight();
+    o1.fight(); o2.fight(); o3.fight();
   }
 
 }
