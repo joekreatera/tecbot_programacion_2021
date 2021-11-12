@@ -1,4 +1,4 @@
-public class Creature {
+public class Creature implements Positionable{
 
   int px;
   int py;
@@ -21,7 +21,8 @@ public class Creature {
     magic = 0;
   }
 
-  public void takeItem() {
+  public void takeItem(Item a) {
+    
   }
   
   public boolean isFighting(){

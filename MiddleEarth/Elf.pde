@@ -16,4 +16,20 @@ public class Elf extends Creature {
   public int getForce() {
     return (int)Math.round(this.getStrength()*0.2f + this.getMagic()*0.8f );
   }
+  
+  public void takeItem(Item a) {
+     if(a.isTaken() ){
+        return;
+     }
+     a.doTake();
+     if( a.type == Item.WEAPON ){
+        strength += 10;
+     } 
+     if( a.type == Item.HEALER ){
+         life  = Math.min(MAX_LIFE , life + (int)(MAX_LIFE*0.5f) );
+     } 
+     if( a.type == Item.AMULET ){
+       magic += 40;
+     } 
+  }
 }

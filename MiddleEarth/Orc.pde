@@ -22,4 +22,21 @@ public class Orc extends Creature {
   public int getForce() {
     return (int)Math.round(this.getStrength()*0.7f + this.getMagic()*0.3f );
   }
+  
+    public void takeItem(Item a) {
+     if(a.isTaken() ){
+        return;
+     }
+     a.doTake();
+     if( a.type == Item.WEAPON ){
+        strength += 30;
+     } 
+     if( a.type == Item.HEALER ){
+         life  = Math.min(MAX_LIFE , life + (int)(MAX_LIFE*0.5f) );
+     } 
+     if( a.type == Item.AMULET ){
+       
+     } 
+  }
+  
 }

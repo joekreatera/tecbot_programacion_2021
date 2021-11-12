@@ -16,7 +16,7 @@ public class World {
   Item i4;
   Item i5;
   Item i6;
-  
+
   int days = 0;
 
   public World() {
@@ -36,14 +36,36 @@ public class World {
     i6 = new Item(Item.HEALER, (int)(Math.random()*100), (int)(Math.random()*100) );
   }
 
-  public float getDistance(Creature a, Creature b) {
+
+  public float getDistance(Positionable a, Positionable b) {
 
     int dx = (a.getPx() - b.getPx())*(a.getPx() - b.getPx());
     int dy = (a.getPy() - b.getPy())*(a.getPy() - b.getPy());
     float d = (float)Math.sqrt(dx+dy);
-
-
     return d;
+  }
+
+
+  public void checkItems(Creature a, Item b1, Item b2, Item b3, Item b4, Item b5, Item b6) {
+
+    if ( getDistance(a, b1) < 10 ) {
+      a.takeItem(b1);
+    }
+    if ( getDistance(a, b2) < 10 ) {
+      a.takeItem(b2);
+    }
+    if ( getDistance(a, b3) < 10 ) {
+      a.takeItem(b3);
+    }
+    if ( getDistance(a, b4) < 10 ) {
+      a.takeItem(b4);
+    }
+    if ( getDistance(a, b5) < 10 ) {
+      a.takeItem(b5);
+    }
+    if ( getDistance(a, b6) < 10 ) {
+      a.takeItem(b6);
+    }
   }
 
   public void checkFights(Creature a, Creature b1, Creature b2, Creature b3) {
@@ -95,11 +117,28 @@ public class World {
     checkFights(e2, o1, o2, o3);
     checkFights(e3, o1, o2, o3);
 
+
+
+    checkItems(e1, i1,i2,i3,i4,i5,i6);
+    checkItems(e2, i1,i2,i3,i4,i5,i6);
+    checkItems(e3, i1,i2,i3,i4,i5,i6);
+    checkItems(o1, i1,i2,i3,i4,i5,i6);
+    checkItems(o2, i1,i2,i3,i4,i5,i6);
+    checkItems(o3, i1,i2,i3,i4,i5,i6);
+    
     e1.fight();
     e2.fight();
     e3.fight();
     o1.fight();
     o2.fight();
     o3.fight();
+
+
+    i1.render();
+    i2.render();
+    i3.render();
+    i4.render();
+    i5.render();
+    i6.render();
   }
 }
