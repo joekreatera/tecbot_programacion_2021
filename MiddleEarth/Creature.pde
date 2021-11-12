@@ -43,10 +43,15 @@ public class Creature {
       opponent = null;
     }
   }
-  public void move() {
+  public void move(boolean shouldChange) {
     
     if( isFighting() ) {
       return;
+    }
+    
+    if( shouldChange ){
+       sx = (int)(Math.random()*4-2);
+       sy = (int)(Math.random()*4-2);
     }
     
     if(px + sx >= 100){
@@ -113,6 +118,10 @@ public class Creature {
   public void render(){
     if( getLife() < 0 ) {
       return;
+    }
+    text(""+life, px*4,py*4+15);
+    if( isFighting() ){
+      circle(px*4+2,py*4+2,2);
     }
     circle(px*4,py*4,10);
   }

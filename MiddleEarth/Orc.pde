@@ -14,11 +14,6 @@ public class Orc extends Creature {
   }
 
   public void render() {
-    
-    if( getLife() < 0 ) {
-      return;
-    }
-    
     fill(0, 0, 0);
     super.render();
     fill(255, 255, 255);

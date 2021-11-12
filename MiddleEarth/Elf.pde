@@ -7,10 +7,10 @@ public class Elf extends Creature {
     sx = (int)(Math.random()*4-2);
     sy = (int)(Math.random()*4-2);
 
-    life = (int)(Math.random()*500+1500);
+    life = (int)(Math.random()*1000+2000);
     strength = (int)(Math.random()*30+20);
     MAX_LIFE = life;
-    magic= (int)(Math.random()*60+60);
+    magic= (int)(Math.random()*100+100);
   }
 
   public int getForce() {
